@@ -1,0 +1,30 @@
+    @font-face {
+    font-family: "Custom Font";
+    src: url("/fonts/Computer_Pixel.ttf");
+  }
+  
+  body {
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+  }
+  
+  .phrases {
+    color: rgb(0, 255, 0); /*Electric Green*/
+    font-family: "Custom Font", sans-serif;
+    font-size: 30px;
+    letter-spacing: 1.8px;
+    line-height: 1.2;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow-x: hidden;
+    padding: 60px; /* Add padding to create a small distance from the edges */
+    box-sizing: border-box;
+    padding-top: 20px;
+  }
+
+  #space {
+    height: 30px; /* Adjust the height as needed */
+  }

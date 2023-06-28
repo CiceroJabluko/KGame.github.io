@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        background-color: black;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .video-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #kiva-video {
+        position: fixed;
+        width: 100%;
+        height: auto;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .black-rectangle {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 16%;
+        width: 100%;
+        background-color: black;
+        z-index: 999;
+      }
+
+      .top-rectangle {
+        transform: translateY(-0%);
+      }
+
+      .bottom-rectangle {
+        transform: translateY(539%);
+      }
+
+      @font-face {
+        font-family: "Custom Font";
+        src: url("/fonts/Computer_Pixel.ttf");
+      }
+
+      @keyframes iridescent {
+        0% {
+          color: #ff6ac1;
+          text-shadow: 0 0 10px #ff6ac1;
+        }
+        25% {
+          color: pink;
+          text-shadow: 0 0 10px pink;
+        }
+        50% {
+          color: #00ff66;
+          text-shadow: 0 0 10px #00ff66;
+        }
+        75% {
+          color: pink;
+          text-shadow: 0 0 10px pink;
+        }
+        100% {
+          color: #ff6ac1;
+          text-shadow: 0 0 10px #ff6ac1;
+        }
+      }
+
+      .animated-phrase {
+        position: fixed;
+        top: -6%; /* Adjust the top value to change the vertical position */
+        left: 20%;
+        text-align: center;
+        font-family: "Arial", sans-serif;
+        animation: iridescent 2s linear infinite;
+        font-family: "Custom Font";
+        font-size: 90px;
+        letter-spacing: 12px;
+        margin-bottom: 20px;
+        z-index: 9999;
+      }
+
+      .animated-phrase-2 {
+        position: fixed;
+        top: 80%; /* Adjust the top value to change the vertical position */
+        left: 7.5%;
+        text-align: center;
+        font-family: "Arial", sans-serif;
+        animation: iridescent2 2s linear infinite;
+        font-family: "Custom Font";
+        font-size: 60px;
+        letter-spacing: 10px;
+        display: block;
+        z-index: 9999;
+      }
+
+      @keyframes iridescent2 {
+        0% {
+          color: #ff6ac1;
+          text-shadow: 0 0 10px #ff6ac1;
+        }
+        25% {
+          color: pink;
+          text-shadow: 0 0 10px pink;
+        }
+        50% {
+          color: #00ff66;
+          text-shadow: 0 0 10px #00ff66;
+        }
+        75% {
+          color: pink;
+          text-shadow: 0 0 10px pink;
+        }
+        100% {
+          color: #ff6ac1;
+          text-shadow: 0 0 10px #ff6ac1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="animated-phrase">Congrats! Game over...</h1>
+    <p class="animated-phrase-2">You plunged humanity into nothingness 😐</p>
+    <div class="video-container hidden">
+      <div class="black-rectangle top-rectangle"></div>
+      <video id="kiva-video">
+        <source src="/video/false_one.mp4" type="video/mp4" />
+      </video>
+      <div class="black-rectangle bottom-rectangle"></div>
+    </div>
+
+    <script>
+      function enableFullscreen() {
+        var element = document.documentElement; // Get the root element of the document
+
+        if (element.requestFullscreen) {
+          element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+          // Firefox
+          element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) {
+          // Chrome, Safari, and Opera
+          element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) {
+          // Internet Explorer/Edge
+          element.msRequestFullscreen();
+        }
+      }
+
+      document.addEventListener("click", enableFullscreen);
+
+      const typewriter = document.querySelector(".animated-phrase");
+      const text = typewriter.textContent;
+      typewriter.textContent = "";
+
+      const typewriter2 = document.querySelector(".animated-phrase-2");
+      const text2 = typewriter2.textContent;
+      typewriter2.textContent = "";
+
+      let delay = 22000; // Delay in milliseconds before the first phrase appears
+      let delay2 = 27000; // Delay in milliseconds before the second phrase appears
+
+      setTimeout(() => {
+        let charIndex = 0;
+        const timer = setInterval(() => {
+          typewriter.textContent += text[charIndex];
+          charIndex++;
+          if (charIndex === text.length) {
+            clearInterval(timer);
+          }
+        }, 100); // Delay between each character being added
+
+        typewriter.style.display = "block"; // Make the hidden phrase visible
+      }, delay);
+
+      setTimeout(() => {
+        let charIndex2 = 0;
+        const timer2 = setInterval(() => {
+          typewriter2.textContent += text2[charIndex2];
+          charIndex2++;
+          if (charIndex2 === text2.length) {
+            clearInterval(timer2);
+          }
+        }, 100); // Delay between each character being added
+
+        typewriter2.style.display = "block"; // Make the hidden phrase visible
+      }, delay2);
+
+      setTimeout(function () {
+        const videoContainer = document.querySelector(".video-container");
+        const video = document.querySelector("#kiva-video");
+        video.pause();
+        videoContainer.classList.remove("hidden");
+        video.play();
+        document.body.style.overflow = "auto"; // Remove the overflow:hidden property from the body
+      }, 10000);
+    </script>
+  </body>
+</html>

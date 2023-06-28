@@ -1,0 +1,99 @@
+@font-face {
+  font-family: "Buttons Font";
+  src: url("/fonts/Gameplay.ttf");
+  font-size: 10vh;
+}
+@font-face {
+  font-family: "Custom Font";
+  src: url("/fonts/Computer_Pixel.ttf");
+}
+
+body {
+  position: fixed;
+  background-color: rgb(0, 0, 0);
+}
+
+.phrases {
+  color: rgb(0, 255, 0); /*Electric Green*/
+  font-family: "Custom Font", sans-serif;
+  font-size: 30px;
+  letter-spacing: 1.8px;
+  line-height: 1.2;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-x: hidden;
+  padding: 60px; /* Add padding to create a small distance from the edges */
+  box-sizing: border-box;
+  padding-top: 40px;
+}
+
+.custom-button {
+  font-family: "Buttons Font", sans-serif;
+  letter-spacing: 2.5px;
+  background-color: rgb(255, 225, 0);
+  text-shadow: rgb(2, 2, 2) 0px 0px 2px;
+  color: rgb(0, 0, 0);
+  padding: 21px 25px;
+  text-align: center;
+  display: flex;
+  font-size: 20px;
+  transition: transform 3s;
+  margin: -22px 35px;
+  align-items: center;
+  rotate: 0deg;
+  border: 0px;
+  box-shadow: inset 0px 5px 20px rgb(0, 0, 0, 1), inset 0px -8px 10px rgba(0, 0, 0, 1);
+}
+
+.custom-button-two {
+  font-family: "Buttons Font", sans-serif;
+  letter-spacing: 4px;
+  background-color: #020202; 
+  color: rgb(255, 252, 79);
+  text-shadow: #767676 2px 0px 5px;
+  padding: 22px 20px 12px;
+  text-align: center;
+  display: flex;
+  font-size: 23px;
+  transition: transform 3s;
+  font-weight: bold;
+  margin: -22px 35px;
+  justify-content: center;
+  align-items: center;
+  border: 0px;
+}
+
+#buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding: 55px;
+}
+
+.custom-button:hover {
+  background-color: rgb(255, 0, 0); /* Change to the desired color */
+  color: rgb(2, 0, 70); /* Change to the desired color */
+  transform: translateY(8px);
+  filter: brightness(110%);
+}
+
+.custom-button-two:hover {
+  color: #ff3030; /* Change to the desired color */
+  filter: brightness(300%);
+  transform: translateY(8px);
+}
+
+
+
+
+
+
+
+
+
