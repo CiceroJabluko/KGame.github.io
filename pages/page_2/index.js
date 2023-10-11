@@ -80,7 +80,7 @@ window.onload = function() {
       );
   }
   
-  // штука яка не дає новій фразі початися поки не закінчилася стара
+  // функція яка не дає новій фразі початися поки не закінчилася стара
   
   function showNextPhrase() {
     if (
@@ -253,7 +253,6 @@ function typeNextPhrase() {
 // Function to show the next phrase and attach the space bar event listener
 function showNextPhrase() {
   if (currentPhraseIndex >= phraseQueue.length) {
-    // All phrases have been typed
     return;
   }
 
