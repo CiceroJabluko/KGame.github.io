@@ -52,7 +52,6 @@ function typeWriter(text, div, callback) {
 function spaceBarKeyDown(event) {
   if (event.code === "Space") {
     if (currentPhraseIndex >= phraseQueue.length) {
-      // All phrases have been typed
       window.location.href = "/pages/page_4/page_4.html"; // Replace with the relative path to the next HTML document
       return;
     }
@@ -64,7 +63,6 @@ function spaceBarKeyDown(event) {
 // Function to type the next phrase and attach the space bar event listener
 function typeNextPhrase() {
   if (currentPhraseIndex >= phraseQueue.length) {
-    // All phrases have been typed
     return;
   }
 
@@ -80,7 +78,6 @@ function typeNextPhrase() {
 // Function to show the next phrase and attach the space bar event listener
 function showNextPhrase() {
   if (currentPhraseIndex >= phraseQueue.length) {
-    // All phrases have been typed
     return;
   }
 }
